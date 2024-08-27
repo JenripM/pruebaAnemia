@@ -24,25 +24,30 @@ ChartJS.register(
   Legend
 );
 
-const NivelAnemiaChart = ({ pacienteId, nivelAnemia }) => {
+interface NivelAnemiaChartProps {
+  pacienteId: string; // Define el tipo que corresponda según tu API
+  nivelAnemia: string; // O el tipo que sea apropiado (puede ser un enum, por ejemplo)
+}
+
+const NivelAnemiaChart: React.FC<NivelAnemiaChartProps> = ({ pacienteId, nivelAnemia }) => {
   const [chartData, setChartData] = useState({
-    labels: [],
+    labels: [] as string[], // O el tipo que corresponda según tu API
     datasets: [
       {
         label: "Hemoglobina",
-        data: [],
+        data: [] as number[], // O el tipo que corresponda
         borderColor: "rgba(75, 192, 192, 1)",
         backgroundColor: "rgba(75, 192, 192, 0.2)",
       },
       {
         label: "Peso",
-        data: [],
+        data: [] as number[], // O el tipo que corresponda
         borderColor: "rgba(153, 102, 255, 1)",
         backgroundColor: "rgba(153, 102, 255, 0.2)",
       },
       {
         label: "Estatura",
-        data: [],
+        data: [] as number[], // O el tipo que corresponda
         borderColor: "rgba(255, 159, 64, 1)",
         backgroundColor: "rgba(255, 159, 64, 0.2)",
       },
@@ -58,12 +63,12 @@ const NivelAnemiaChart = ({ pacienteId, nivelAnemia }) => {
 
         const data = response.data[nivelAnemia].diagnosticos.data;
 
-        const labels = data.map((diagnostico) =>
+        const labels = data.map((diagnostico: { created_at: string | number | Date; }) =>
           new Date(diagnostico.created_at).toLocaleDateString()
         );
-        const hemoglobina = data.map((diagnostico) => diagnostico.hemoglobina);
-        const peso = data.map((diagnostico) => diagnostico.peso);
-        const estatura = data.map((diagnostico) => diagnostico.talla);
+        const hemoglobina = data.map((diagnostico: { hemoglobina: number }) => diagnostico.hemoglobina);
+        const peso = data.map((diagnostico: { peso: number }) => diagnostico.peso);
+        const estatura = data.map((diagnostico: { talla: number }) => diagnostico.talla);
 
         setChartData({
           labels,
