@@ -67,7 +67,7 @@ export function TopBar() {
               </div>
             </div>
           </div>
-          <div className="relative ml-5 flex w-1/4  gap-2 items-center justify-end p-1 sm:right-auto sm:mr-0">
+          <div className="relative ml-5 flex w-1/4  items-center justify-end gap-2 p-1 sm:right-auto sm:mr-0">
             <h1 className="whitespace-nowrap">{session?.user?.name}</h1>
             <img
               alt="Usuario"
