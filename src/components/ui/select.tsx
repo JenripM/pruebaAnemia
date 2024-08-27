@@ -11,6 +11,7 @@ interface SelecteProps {
     id: string,
     data: Option[];
     selected: string;
+    // eslint-disable-next-line unused-imports/no-unused-vars
     onChange: (value: string) => void;
     disabled?: boolean;
     required?: boolean;
