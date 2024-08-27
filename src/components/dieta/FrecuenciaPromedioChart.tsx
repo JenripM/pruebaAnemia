@@ -49,7 +49,7 @@ const FrequencyChart: React.FC<FrequencyChartProps> = ({ data }) => {
 
   return (
     <div className="m-6">
-      <h2 className="font-medium text-lg mb-4">
+      <h2 className="mb-4 text-lg font-medium">
         Frecuencia promedio de consumo de alimentos:
       </h2>
       <Line data={chartData} />

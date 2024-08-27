@@ -174,6 +174,7 @@ const FormDieta = () => {
           break;
         default:
           title = "Resultado no reconocido";
+          // eslint-disable-next-line unused-imports/no-unused-vars
           recommendations = ["Por favor, inténtalo nuevamente."];
       }
 
@@ -200,7 +201,7 @@ const FormDieta = () => {
 
   return (
     <div className="bg-white">
-      <h1 className="font-medium font-sans text-xl px-4 pt-4">
+      <h1 className="px-4 pt-4 font-sans text-xl font-medium">
         Ingresa datos de la frecuencia de consumo de la dieta alimenticia
       </h1>
       <p className="px-4">
@@ -218,6 +219,7 @@ const FormDieta = () => {
           loading={loading}
           onChange={handlePacienteChange}
           value={selectedPaciente ?? undefined} // Asegura que el valor esté controlado
+          // eslint-disable-next-line tailwindcss/no-custom-classname
           className={!selectedPaciente && error ? "ant-select-error" : ""} // Agrega clase de error si no hay selección
         >
           {pacientes.map((paciente) => (
@@ -232,7 +234,7 @@ const FormDieta = () => {
           </div>
         )}
       </div>
-      <div className="grid xl:grid-cols-4 sm:grid-cols-3 mt-4 px-4">
+      <div className="mt-4 grid px-4 sm:grid-cols-3 xl:grid-cols-4">
         {variablesDiet.map((variable, index) => (
           <div key={index} className="grid grid-cols-2 gap-2">
             <h4 className="mt-2 font-sans text-sm font-semibold">
@@ -247,10 +249,10 @@ const FormDieta = () => {
         ))}
       </div>
 
-      <div className="flex items-center justify-center m-3">
+      <div className="m-3 flex items-center justify-center">
         <button
           type="button"
-          className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+          className="mb-2 me-2 rounded-lg bg-gray-800 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
           onClick={handleSubmit}
         >
           Consultar
@@ -285,7 +287,7 @@ const FormDieta = () => {
             </Button>,
           ]}
         >
-          <h1 className="font-medium text-xl mb-4">{modalTitle}</h1>
+          <h1 className="mb-4 text-xl font-medium">{modalTitle}</h1>
           <p className="mb-3">
             {suggestionsMutation.isPending && (
               <span>Generando recomendaciones para tu resultado ...</span>
@@ -300,7 +302,7 @@ const FormDieta = () => {
             loading={suggestionsMutation.isPending}
             renderItem={(item) => <List.Item>{item}</List.Item>}
           />
-          <p className="text-neutral-500 text-xs">
+          <p className="text-xs text-neutral-500">
             Estas recomendaciones son generadas por una Inteligencia Artificial,
             para mayor precisión, consulta a un nutricionista.
           </p>

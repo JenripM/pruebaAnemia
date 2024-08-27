@@ -4,6 +4,7 @@ import { InputNumber, Space } from "antd";
 interface CountInputProps {
   variable: string;
   value: number;
+  // eslint-disable-next-line unused-imports/no-unused-vars
   onChange: (value: number | null, variable: string) => void;
 }
 
