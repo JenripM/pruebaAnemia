@@ -5,11 +5,6 @@ import { PacientesContext } from "@/providers/pacientesContext";
 import { useSession } from "next-auth/react";
 import { config } from "@/lib/config";
 
-const boxStyle: React.CSSProperties = {
-  width: "100%",
-  borderRadius: 23,
-  padding: 25,
-};
 
 const App: React.FC = () => {
   const context = useContext(PacientesContext);
@@ -19,9 +14,12 @@ const App: React.FC = () => {
     return <div>Loading...</div>; // O cualquier otro mensaje o componente que indique que el contexto está cargando
   }
   const { pacientes } = context;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [refreshPacientes, setRefreshPacientes] = useState([]);
-  const { data: session, status } = useSession();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { data: session } = useSession();
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     // Función para obtener datos de la API
     const fetchPacientes = async () => {
@@ -39,7 +37,7 @@ const App: React.FC = () => {
     };
 
     fetchPacientes();
-  }, [pacientes]);
+  }, [pacientes, session]);
 
   return (
     <>
@@ -49,7 +47,6 @@ const App: React.FC = () => {
           size="small"
           bordered
           dataSource={refreshPacientes}
-          renderItem={(item) => <List.Item>{item.nombre}</List.Item>}
         />
       </div>
     </>

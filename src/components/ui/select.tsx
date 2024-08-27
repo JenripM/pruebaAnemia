@@ -25,7 +25,7 @@ const Select: React.FC<SelecteProps> = ({ data, label, selected, onChange, disab
                 name={id}
                 value={selected}
                 onChange={(e) => onChange(e.target.value)}
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2"
+                className="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm"
                 disabled={disabled}
                 required={required}
             >

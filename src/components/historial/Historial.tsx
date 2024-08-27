@@ -18,42 +18,6 @@ const { TabPane } = Tabs;
 
 const { Option } = Select;
 
-interface Paciente {
-  id: number;
-  codigo_cnv: string;
-  dni: string;
-  nombre: string;
-  sexo: string;
-  fecha_nacimiento: string;
-  distrito: number;
-}
-
-interface Dieta {
-  id: number;
-  paciente: Paciente;
-  frec_verduras: number;
-  frec_carnes_rojas: number;
-  frec_aves: number;
-  frec_huevos: number;
-  frec_pescado: number;
-  frec_leche: number;
-  frec_menestra: number;
-  frec_bocados_dulc: number;
-  frec_bebidas_az: number;
-  frec_embutidos_consv: number;
-  frec_fritura: number;
-  frec_azucar: number;
-  frec_desayuno: number;
-  frec_almuerzo: number;
-  frec_cena: number;
-  frec_fruta: number;
-  dx_dieta: number;
-  created_at: string;
-  updated_at: string;
-}
-
-// const url = 'https://apianemia.onrender.com';
-// const url = "http://127.0.0.1:8000";
 
 const HistorialPredicciones = () => {
   const [pacientes, setPacientes] = useState<{ id: number; nombre: string }[]>(
@@ -62,14 +26,14 @@ const HistorialPredicciones = () => {
 
   const [activeTab, setActiveTab] = useState("1"); // Estado para controlar la pestaña activa
   const [dietaData, setDietaData] = useState([]);
-  const [loading, setLoading] = useState(false); // Estado para manejar el loading
+  const [loading] = useState(false); // Estado para manejar el loading
   const [selectedPaciente, setSelectedPaciente] = useState<number | null>(null);
   const [error, setError] = useState<boolean>(false); // Agregado aquí
   const { data: session } = useSession();
   const [fechaInicio, setFechaInicio] = useState<Date | null>(null);
   const [fechaFin, setFechaFin] = useState<Date | null>(null);
   const [nivelAnemia, setNivelAnemia] = useState<string | null>(null);
-  const [ultimoDiagnostico, setUltimoDiagnostico] = useState(null);
+  const [] = useState(null);
 
   const handleFechaChange = (fechaInicio: Date, fechaFin: Date) => {
     setFechaInicio(fechaInicio);
@@ -210,6 +174,7 @@ const HistorialPredicciones = () => {
                   loading={loading}
                   onChange={handlePacienteChange}
                   value={selectedPaciente ?? undefined}
+                  // eslint-disable-next-line tailwindcss/no-custom-classname
                   className={
                     !selectedPaciente && error ? "ant-select-error" : ""
                   }

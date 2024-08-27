@@ -6,7 +6,6 @@ import axios from "axios";
 import { PacientesContext } from "@/providers/pacientesContext";
 import { config } from "@/lib/config";
 
-// const url = 'https://apianemia.onrender.com';
 
 const { Option } = Select;
 
@@ -55,7 +54,7 @@ const FormPaciente: React.FC<FormPacienteProps> = () => {
     string | undefined
   >(undefined);
   const [form] = Form.useForm();
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   const context = useContext(PacientesContext);
 
@@ -66,9 +65,7 @@ const FormPaciente: React.FC<FormPacienteProps> = () => {
   const {
     pacientes,
     agregarPaciente,
-    showAlert,
-    alertMessage,
-    alertType,
+   
     handleShowAlert,
   } = context;
 
@@ -144,10 +141,10 @@ const FormPaciente: React.FC<FormPacienteProps> = () => {
   return (
     <>
       <div>
-        <h1 className="text-xl font-semibold text-center">
+        <h1 className="text-center text-xl font-semibold">
           Registrar paciente:
         </h1>
-        <p className="text-sm p-4">Ingrese los datos del menor.</p>
+        <p className="p-4 text-sm">Ingrese los datos del menor.</p>
         <Flex gap="middle" align="start" vertical>
           <Flex style={boxStyle} justify="center" align="center">
             <Form
