@@ -86,13 +86,13 @@ const ChatHistory: React.FC = () => {
                   <li key={chat.id}>
                     <Button
                       onClick={() => setSelectedChatID(chat.id)}
-                      className="py-2 flex items-center justify-between w-full h-fit overflow-hidden"
+                      className="flex h-fit w-full items-center justify-between overflow-hidden py-2"
                     >
-                      <div className="flex items-center w-full">
+                      <div className="flex w-full items-center">
                         <Badge
                           offset={[-2, 5]}
                           count={
-                            <span className="w-5 h-5 bg-red-600 rounded-full text-white grid place-content-center">
+                            <span className="grid h-5 w-5 place-content-center rounded-full bg-red-600 text-white">
                               {chat.type === ConversationType.DIETA && (
                                 <PiBowlFood
                                   style={{ color: "white" }}
@@ -111,18 +111,18 @@ const ChatHistory: React.FC = () => {
                             </span>
                           }
                         >
-                          <aside className="shrink-0 w-10 h-10 rounded-full overflow-hidden grid place-content-center bg-slate-200">
+                          <aside className="grid h-10 w-10 shrink-0 place-content-center overflow-hidden rounded-full bg-slate-200">
                             <FaRobot />
                           </aside>
                         </Badge>
-                        <div className="ml-3 flex flex-col text-start w-full">
-                          <div className="text-sm font-medium grid">
+                        <div className="ml-3 flex w-full flex-col text-start">
+                          <div className="grid text-sm font-medium">
                             <p className="line-clamp-1 ">
                               {chat.last_message_content ||
                                 "Nueva conversación"}
                             </p>
                           </div>
-                          <footer className="flex justify-between w-full">
+                          <footer className="flex w-full justify-between">
                             <span className="text-xs text-gray-500">
                               {moment(
                                 chat.last_message_time || chat.created_at
