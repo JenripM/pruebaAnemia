@@ -1,8 +1,5 @@
-interface ContentProps {
-  title: string;
-}
 
-export function Content(props: ContentProps) {
+export function Content() {
   return (
     <></>
     // <div className="flex flex-col flex-wrap sm:flex-row">
