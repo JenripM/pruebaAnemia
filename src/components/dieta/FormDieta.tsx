@@ -87,7 +87,7 @@ const FormDieta = () => {
     },
     onError: (error) => {
       console.error("Error fetching pacientes:", error);
-      setModalContent([`Error: No se pudieron obtener las recomendaciones.`]);
+      setModalContent(["Error: No se pudieron obtener las recomendaciones."]);
     },
     onSuccess: (data) => {
       setModalContent(data.suggestions);
@@ -263,6 +263,7 @@ const FormDieta = () => {
           onOk={handleOk}
           onCancel={handleOk}
           footer={[
+            // eslint-disable-next-line react/jsx-key
             <Button
               className="bg-blue-600 text-white"
               onClick={async () => {

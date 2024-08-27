@@ -1,9 +1,10 @@
 // Componente hijo (FechaSelector.tsx)
 import React, { useState } from "react";
 import { DatePicker } from "antd";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 
 interface FechaSelectorProps {
+  // eslint-disable-next-line unused-imports/no-unused-vars
   onFechaChange: (fechaInicio: Date, fechaFin: Date) => void;
 }
 

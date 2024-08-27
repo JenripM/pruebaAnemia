@@ -95,7 +95,7 @@ const HistorialGrafico: React.FC<HistorialGraficoProps> = ({ dietas }) => {
 
   return (
     <div className="bg-white p-4">
-      <h2 className="font-medium text-lg mb-4">
+      <h2 className="mb-4 text-lg font-medium">
         Resultados de probabilidad de Anemia:
       </h2>
       <Line
