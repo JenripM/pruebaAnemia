@@ -21,7 +21,6 @@ const monthTickFormatter = (tick: any) => {
 const renderMonthTick = (props: any) => {
   const { x, y, payload, index, visibleTicksCount } = props;
   const date = new Date(payload.value);
-  const month = date.toLocaleString("es-ES", { month: "short" });
   const year = date.getFullYear();
 
   // Only render the year in the middle tick

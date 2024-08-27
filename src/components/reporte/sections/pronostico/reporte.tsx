@@ -31,7 +31,7 @@ export default function Reporte() {
     }
   };
 
-  const { data, isLoading, isError } = useQuery<ReporteEvolucionMensual>({
+  const { data,  } = useQuery<ReporteEvolucionMensual>({
     queryKey: ["departamentos", rangoFrom, rangoTo],
     queryFn: fetchReporte,
   });
