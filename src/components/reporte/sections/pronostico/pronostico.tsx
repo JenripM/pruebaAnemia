@@ -18,5 +18,5 @@ export default function Pronostico() {
       }
       </div>
     </Card> 
-  )
+  );
 }
